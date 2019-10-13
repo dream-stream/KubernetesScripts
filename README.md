@@ -1,5 +1,6 @@
 # KubernetesScripts
 
+## Setup Prometheus
 Run the following commands:
 
 `kubectl create ns monitoring`
@@ -13,3 +14,19 @@ Run the following commands:
 
 When creating new deployments/statefulsets be sure to to use the label: **release: prometheus**
 And the port should be name and it should be called **web**
+
+## Setup etcd
+
+`helm install --name-template etcd incubator/etcd`
+
+### Commands
+`etcdctl get Broker/ --prefix`
+
+`etcdctl get Leader/ --prefix`
+
+`etcdctl get TopicList/ --prefix`
+
+`etcdctl get Topic/ --prefix`
+
+**API documentation:**
+https://help.compose.com/docs/etcd-using-etcd3-features
