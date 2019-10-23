@@ -3,13 +3,13 @@ kind: ServiceMonitor
 metadata:
   name: default-monitor
   labels:
-    release:  prometheus
+    release: prometheus
 spec:
   namespaceSelector:
     any: true
   selector:
     matchLabels:
-      monitor:  true
+      monitor:  "true"
   endpoints:
   - port: web            # works for different port numbers as long as the name matches
     interval: 10s        # scrape the endpoint every 10 seconds
