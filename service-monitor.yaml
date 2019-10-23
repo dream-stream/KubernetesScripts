@@ -1,13 +1,15 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: monitor
+  name: default-monitor
   labels:
     release:  prometheus
 spec:
+  namespaceSelector:
+    any: true
   selector:
     matchLabels:
-      release:  prometheus
+      monitor:  true
   endpoints:
   - port: web            # works for different port numbers as long as the name matches
     interval: 10s        # scrape the endpoint every 10 seconds
