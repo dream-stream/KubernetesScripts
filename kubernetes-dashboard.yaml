@@ -120,6 +120,7 @@ spec:
           - --auto-generate-certificates=false
           - --tls-cert-file=DreamStream.crt
           - --tls-key-file=DreamStream.pem
+          - --token-ttl=86400
           # Uncomment the following line to manually specify Kubernetes API server Host
           # If not specified, Dashboard will attempt to auto discover the API server and connect
           # to it. Uncomment only if the default does not work.
@@ -144,6 +145,8 @@ spec:
       - name: tmp-volume
         emptyDir: {}
       serviceAccountName: kubernetes-dashboard
+      nodeSelector:
+        kubernetes.io/hostname: master
       # Comment the following tolerations if Dashboard must not be deployed on master
       tolerations:
       - key: node-role.kubernetes.io/master
