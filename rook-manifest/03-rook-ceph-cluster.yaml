@@ -29,6 +29,10 @@ spec:
             - key: systemArch
               operator: Exists
       tolerations:
+        - key: "kubernetes.io/arch"
+          operator: "Equal"
+          value: "amd64"
+          effect: "NoSchedule"
     mgr:
       nodeAffinity:
       tolerations:

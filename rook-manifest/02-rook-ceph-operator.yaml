@@ -31,6 +31,11 @@ spec:
       serviceAccountName: rook-ceph-system
       nodeSelector:
         systemArch: amd64
+      tolerations:
+        - key: "kubernetes.io/arch"
+          operator: "Equal"
+          value: "amd64"
+          effect: "NoSchedule"
       containers:
       - name: rook-ceph-operator
         image: rook/ceph:master
@@ -56,11 +61,12 @@ spec:
         # - name: AGENT_TOLERATION_KEY
         #   value: "<KeyOfTheTaintToTolerate>"
         # (Optional) Rook Agent tolerations list. Put here list of taints you want to tolerate in YAML format.
-        # - name: AGENT_TOLERATIONS
-        #   value: |
-        #     - effect: NoSchedule
-        #       key: node-role.kubernetes.io/controlplane
-        #       operator: Exists
+        - name: AGENT_TOLERATIONS
+          value: |
+            - key: "kubernetes.io/arch"
+              operator: "Equal"
+              value: "amd64"
+              effect: "NoSchedule"
         #     - effect: NoExecute
         #       key: node-role.kubernetes.io/etcd
         #       operator: Exists
@@ -91,11 +97,12 @@ spec:
         # - name: DISCOVER_TOLERATION_KEY
         #   value: "<KeyOfTheTaintToTolerate>"
         # (Optional) Rook Discover tolerations list. Put here list of taints you want to tolerate in YAML format.
-        # - name: DISCOVER_TOLERATIONS
-        #   value: |
-        #     - effect: NoSchedule
-        #       key: node-role.kubernetes.io/controlplane
-        #       operator: Exists
+        - name: DISCOVER_TOLERATIONS
+          value: |
+            - key: "kubernetes.io/arch"
+              operator: "Equal"
+              value: "amd64"
+              effect: "NoSchedule"  
         #     - effect: NoExecute
         #       key: node-role.kubernetes.io/etcd
         #       operator: Exists
@@ -191,11 +198,12 @@ spec:
           value: "systemArch=amd64"
         # (Optional) CEPH CSI provisioner tolerations list. Put here list of taints you want to tolerate in YAML format.
         #  CSI provisioner would be best to start on the same nodes as other ceph daemons.
-        # - name: CSI_PROVISIONER_TOLERATIONS
-        #   value: |
-        #     - effect: NoSchedule
-        #       key: node-role.kubernetes.io/controlplane
-        #       operator: Exists
+        - name: CSI_PROVISIONER_TOLERATIONS
+          value: |
+            - key: "kubernetes.io/arch"
+              operator: "Equal"
+              value: "amd64"
+              effect: "NoSchedule"
         #     - effect: NoExecute
         #       key: node-role.kubernetes.io/etcd
         #       operator: Exists
@@ -204,11 +212,12 @@ spec:
           value: "systemArch=amd64"
         # (Optional) CEPH CSI plugin tolerations list. Put here list of taints you want to tolerate in YAML format.
         # CSI plugins need to be started on all the nodes where the clients need to mount the storage.
-        # - name: CSI_PLUGIN_TOLERATIONS
-        #   value: |
-        #     - effect: NoSchedule
-        #       key: node-role.kubernetes.io/controlplane
-        #       operator: Exists
+        - name: CSI_PLUGIN_TOLERATIONS
+          value: |
+            - key: "kubernetes.io/arch"
+              operator: "Equal"
+              value: "amd64"
+              effect: "NoSchedule"
         #     - effect: NoExecute
         #       key: node-role.kubernetes.io/etcd
         #       operator: Exists
