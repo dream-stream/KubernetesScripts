@@ -8,7 +8,7 @@ clientPort: 2379
 component: "etcd"
 replicas: 3
 image:
-  repository: "k8s.gcr.io/etcd-amd64"
+  repository: "k8s.gcr.io/etcd-arm64"
   tag: "3.2.26"
   pullPolicy: "IfNotPresent"
 resources: {}
