@@ -231,11 +231,12 @@ spec:
           emptyDir: {}
       serviceAccountName: kubernetes-dashboard
       nodeSelector:
-        node-role.kubernetes.io/master: "true"
+        kubernetes.io/arch: amd64
       # Comment the following tolerations if Dashboard must not be deployed on master
       tolerations:
-        - key: node-role.kubernetes.io/master
-          value: "true"
+        - key: kubernetes.io/arch
+          operator: Equal
+          value: amd64
           effect: NoSchedule
 
 ---
@@ -299,11 +300,12 @@ spec:
             runAsGroup: 2001
       serviceAccountName: kubernetes-dashboard
       nodeSelector:
-        node-role.kubernetes.io/master: "true"
+        kubernetes.io/arch: amd64
       # Comment the following tolerations if Dashboard must not be deployed on master
       tolerations:
-        - key: node-role.kubernetes.io/master
-          value: "true"
+        - key: kubernetes.io/arch
+          operator: Equal
+          value: amd64
           effect: NoSchedule
       volumes:
         - name: tmp-volume
