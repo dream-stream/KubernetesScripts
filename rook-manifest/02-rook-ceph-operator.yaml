@@ -63,10 +63,10 @@ spec:
         # (Optional) Rook Agent tolerations list. Put here list of taints you want to tolerate in YAML format.
         - name: AGENT_TOLERATIONS
           value: |
-            - key: "kubernetes.io/arch"
-              operator: "Equal"
-              value: "amd64"
-              effect: "NoSchedule"
+            - key: kubernetes.io/arch
+              operator: Equal
+              value: amd64
+              effect: NoSchedule
         #     - effect: NoExecute
         #       key: node-role.kubernetes.io/etcd
         #       operator: Exists
