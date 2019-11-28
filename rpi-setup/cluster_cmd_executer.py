@@ -16,14 +16,14 @@ def main():
     global args
 
     for rpi in range(1,9):
-        print(f'Connecting to rpi{rpi}')
+        print(f'Connecting to Worker{rpi}')
 
         sshClient.connect(f'worker{rpi}', username='pi', password='raspberry')
         print('Executing: ' + args.Command)
         _, stdout, _ = sshClient.exec_command(args.Command)
 
         for line in stdout:
-            print(f'rpi{rpi}: ' + line.strip('\n'))
+            print(f'Worker{rpi}: ' + line.strip('\n'))
 
     print(f'Connecting to Master')
     sshClient.connect(f'master', username='pi', password='raspberry')
