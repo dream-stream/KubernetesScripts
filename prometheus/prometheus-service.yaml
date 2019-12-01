@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-external
+  namespace: monitoring
+  labels:
+    operated-prometheus: 'true'
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: 9090
+      targetPort: web
+      nodePort: 30011
+  selector:
+    app: prometheus
+  type: NodePort

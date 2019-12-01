@@ -1,0 +1,91 @@
+alertmanager:
+  alertmanagerSpec:
+    logFormat: json
+    nodeSelector:
+      kubernetes.io/arch: amd64
+    tolerations:
+      - key: kubernetes.io/arch
+        operator: Equal
+        value: amd64
+        effect: NoSchedule
+  defaultRules:
+    rules:
+      etcd: false
+
+prometheusOperator:
+  admissionWebhooks:
+    patch:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      tolerations:
+        - key: kubernetes.io/arch
+          operator: Equal
+          value: amd64
+          effect: NoSchedule  
+  nodeSelector:
+    kubernetes.io/arch: amd64
+  tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: amd64
+      effect: NoSchedule
+
+prometheus:
+  # service:
+    # type: NodePort
+    # nodePort: 9090
+  prometheusSpec:
+    nodeSelector:
+      kubernetes.io/arch: amd64
+    tolerations:
+      - key: kubernetes.io/arch
+        operator: Equal
+        value: amd64
+        effect: NoSchedule
+
+grafana:
+  service:
+    type: NodePort
+    port: 3000
+    nodePort: 30010
+  nodeSelector:
+    kubernetes.io/arch: amd64
+  tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: amd64
+      effect: NoSchedule
+
+# nodeSelector:
+#   kubernetes.io/arch: amd64
+# tolerations:
+#   - key: kubernetes.io/arch
+#     operator: Equal
+#     value: amd64
+#     effect: NoSchedule
+
+kube-state-metrics:
+  nodeSelector:
+    kubernetes.io/arch: amd64
+  tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: amd64
+      effect: NoSchedule
+
+# kubeApiServer:
+#   relabelings: 
+#   - sourceLabels:
+#       - __meta_kubernetes_namespace
+#       - __meta_kubernetes_service_name
+#       - __meta_kubernetes_endpoint_port_name
+#     action: keep
+#     regex: default;kubernetes;https
+#   - targetLabel: __address__
+#     replacement: kubernetes.default.svc:443
+kubeControllerManager:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false

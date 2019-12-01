@@ -3,9 +3,15 @@
 ## Setup Prometheus
 Run the following commands:
 
+`cd prometheus`
+
 `kubectl create ns monitoring`
 
-`helm install --namespace monitoring --name-template prometheus --set grafana.service.type=LoadBalancer --set grafana.service.port=3000 --set prometheus.service.type=LoadBalancer stable/prometheus-operator`
+`helm install --namespace monitoring --name-template prometheus-operator --set prometheusOperator.createCustomResource=false -f ./values.yaml  --timeout 10m0s --debug .\charts\stable\prometheus-operator\`
+
+`kubectl apply -f prometheus-service.yaml`
+
+See if the following are needed...
 
 `kubectl apply -f prometheus-monitor.yaml -n monitoring`
 
@@ -17,7 +23,17 @@ And the port should be name and it should be called **web**
 
 ## Setup etcd
 
-`helm install --name-template etcd incubator/etcd`
+RPI:
+
+`cd etcd`
+
+`helm install --name-template etcd .` 
+
+Local:
+
+`cd etcd-local`
+
+`helm install --name-template etcd .`
 
 ### Commands
 `etcdctl get Broker/ --prefix`
