@@ -2,7 +2,7 @@
 
 ## ARM images
 
-cyb70289 have created ARM images for cephcsi, so we are using those for access to the rook storage solution from the different arm workers. `cyb70289/cephcsi:canary`
+cyb70289 have created an ARM image for cephcsi, so we are using that for access to the rook storage solution from the different ARM workers. `cyb70289/cephcsi:canary`
 
 A multi architecture image have been created for node-driver-registrar, the source code together with the docker images created (Dockerfile.Amd64, Dockerfile.Arm64, Dockerfile.Arm) can be found in the node-driver-registrar folder.
 
