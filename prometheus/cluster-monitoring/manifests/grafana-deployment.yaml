@@ -126,6 +126,19 @@ spec:
         - mountPath: /grafana-dashboard-definitions/0/workload-total
           name: grafana-dashboard-workload-total
           readOnly: false
+
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-application
+          name: grafana-dashboard-dream-stream-application
+          readOnly: false
+
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-kubernetes-computeresources-pod
+          name: grafana-dashboard-dream-stream-kubernetes-computeresources-pod
+          readOnly: false
+
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-resources
+          name: grafana-dashboard-dream-stream-resources
+          readOnly: false
+
         - mountPath: /etc/grafana
           name: grafana-config
           readOnly: false
@@ -236,3 +249,16 @@ spec:
       - name: grafana-config
         secret:
           secretName: grafana-config
+
+
+
+
+      - configMap:
+          name: grafana-dashboard-dream-stream-application
+        name: grafana-dashboard-dream-stream-application
+      - configMap:
+          name: grafana-dashboard-dream-stream-kubernetes-computeresources-pod
+        name: grafana-dashboard-dream-stream-kubernetes-computeresources-pod
+      - configMap:
+          name: grafana-dashboard-dream-stream-resources
+        name: grafana-dashboard-dream-stream-resources
