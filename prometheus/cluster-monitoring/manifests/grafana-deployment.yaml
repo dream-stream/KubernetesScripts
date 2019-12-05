@@ -254,7 +254,7 @@ spec:
 
 
       - configMap:
-          name: grafana-dashboard-dream-stream-application
+          name: grafana-dashboard-dream-stream-application-v1
         name: grafana-dashboard-dream-stream-application
       - configMap:
           name: grafana-dashboard-dream-stream-kubernetes-computeresources-pod

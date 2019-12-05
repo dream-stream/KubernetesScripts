@@ -10,7 +10,7 @@ Heap: 2G
 ServerPort: 9093
 MaxUnavailable: 1
 UpateStrategy: RollingUpdate
-Image: "banders2/kafka:2.3.1-arm"
+Image: "dreamstream/kafka:2.3.1-arm"
 ImagePullPolicy: "Always"
 TerminationGracePeriodSeconds: 300
 AutoCreateTopicsEnable: "true"

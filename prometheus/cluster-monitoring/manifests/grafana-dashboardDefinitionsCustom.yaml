@@ -3,7 +3,7 @@ items:
 - apiVersion: v1
   kind: ConfigMap
   metadata:
-    name: grafana-dashboard-dream-stream-application
+    name: grafana-dashboard-dream-stream-application-v1
     namespace: monitoring
   data:
     Dream-Stream-Application.json: |-
@@ -184,7 +184,7 @@ items:
                 "refId": "C"
               },
               {
-                "expr": "sum(message_batches_received) by (pod)",
+                "expr": "sum(message_batches_received)",
                 "legendFormat": "batch messages received total",
                 "refId": "D"
               }

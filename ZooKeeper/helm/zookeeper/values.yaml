@@ -16,7 +16,7 @@ updateStrategy:
 ## - https://github.com/kubernetes/contrib/tree/master/statefulsets/zookeeper
 ## - https://github.com/kubernetes/contrib/blob/master/statefulsets/zookeeper/Makefile#L1
 image:
-  repository: banders2/zookeeper    # Container image repository for zookeeper container.
+  repository: dreamstream/zookeeper    # Container image repository for zookeeper container.
   tag: 3.5.6-arm               # Container image tag for zookeeper container.
   pullPolicy: IfNotPresent  # Image pull criteria for zookeeper container.
 

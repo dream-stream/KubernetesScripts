@@ -46,3 +46,12 @@ Local:
 
 **API documentation:**
 https://help.compose.com/docs/etcd-using-etcd3-features
+
+
+## Setup Zookepper
+
+Go to the Zookeeper folder and read the readme
+
+## Setup Kafka
+
+Go to the Kafka folder and read the readme
