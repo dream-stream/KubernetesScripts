@@ -9,5 +9,5 @@ spec:
     - ReadWriteMany
   storageClassName: local-path
   hostPath:
-    path: /mnt/data
+    path: /ssd/nfs
     type: DirectoryOrCreate
