@@ -139,6 +139,18 @@ spec:
           name: grafana-dashboard-dream-stream-resources
           readOnly: false
 
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-statefulset
+          name: grafana-dashboard-dream-stream-statefulset
+          readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-load-vs-broker-replicas
+          name: grafana-dashboard-dream-stream-load-vs-broker-replicas
+          readOnly: false
+
+
+          
+
+
+
         - mountPath: /etc/grafana
           name: grafana-config
           readOnly: false
@@ -254,7 +266,7 @@ spec:
 
 
       - configMap:
-          name: grafana-dashboard-dream-stream-application-v1
+          name: grafana-dashboard-dream-stream-application-v2
         name: grafana-dashboard-dream-stream-application
       - configMap:
           name: grafana-dashboard-dream-stream-kubernetes-computeresources-pod
@@ -262,3 +274,13 @@ spec:
       - configMap:
           name: grafana-dashboard-dream-stream-resources
         name: grafana-dashboard-dream-stream-resources
+      - configMap:
+          name: grafana-dashboard-dream-stream-statefulset
+        name: grafana-dashboard-dream-stream-statefulset
+      - configMap:
+          name: grafana-dashboard-dream-stream-load-vs-broker-replicas
+        name: grafana-dashboard-dream-stream-load-vs-broker-replicas
+
+
+
+        

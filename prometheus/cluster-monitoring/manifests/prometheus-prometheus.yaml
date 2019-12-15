@@ -27,15 +27,15 @@ spec:
       port: web
   baseImage: prom/prometheus
   externalUrl: http://prometheus.192.168.137.10.nip.io
-  nodeSelector:
-    kubernetes.io/os: linux
   # nodeSelector:
-  #   kubernetes.io/arch: amd64
-  # tolerations:
-  #   - key: kubernetes.io/arch
-  #     operator: Equal
-  #     value: amd64
-  #     effect: NoSchedule
+  #   kubernetes.io/os: linux
+  nodeSelector:
+    kubernetes.io/arch: amd64
+  tolerations:
+    - key: kubernetes.io/arch
+      operator: Equal
+      value: amd64
+      effect: NoSchedule
   podMonitorSelector: {}
   replicas: 1
   resources:
