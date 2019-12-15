@@ -6,8 +6,14 @@
 from paramiko import SSHClient
 import argparse
 
-parser = argparse.ArgumentParser(description='Command to execute')
-parser.add_argument('Command', metavar='Cmd', type=str, help='Command to execute')
+parser = argparse.ArgumentParser()
+
+parser.add_argument('command', metavar='cmd', type=str, help='Command to execute')
+
+parser.add_argument('-m', '--master', action='store_true', dest='master', help='Include master node in the execution')
+parser.add_argument('-d', '--debian', action='store_true', dest='debian', help='Include debian node in the execution')
+parser.add_argument('-a', '--all', action='store_true', dest='all', help='Include all nodes in the execution')
+
 args = parser.parse_args()
 
 def main():
@@ -19,19 +25,34 @@ def main():
         print(f'Connecting to Worker{rpi}')
 
         sshClient.connect(f'worker{rpi}', username='pi', password='raspberry')
-        print('Executing: ' + args.Command)
-        _, stdout, _ = sshClient.exec_command(args.Command)
+        print('Executing: ' + args.command)
+        _, stdout, _ = sshClient.exec_command(args.command)
 
         for line in stdout:
             print(f'Worker{rpi}: ' + line.strip('\n'))
 
-    print(f'Connecting to Master')
-    sshClient.connect(f'master', username='pi', password='raspberry')
-    print('Executing: ' + args.Command)
-    _, stdout, _ = sshClient.exec_command(args.Command)
+        print("")
+
+
+    if args.master or args.all:
+        print(f'Connecting to Master')
+        sshClient.connect(f'master', username='pi', password='raspberry')
+        print('Executing: ' + args.command)
+        _, stdout, _ = sshClient.exec_command(args.command)
     
-    for line in stdout:
-        print(f'Master: ' + line.strip('\n'))
+        for line in stdout:
+            print(f'Master: ' + line.strip('\n'))
+        
+        print("")
+
+    if args.debian or args.all:
+        print(f'Connecting to Debian')
+        sshClient.connect(f'debian', username='nicklas', password='raspberry')
+        print('Executing: ' + args.command)
+        _, stdout, _ = sshClient.exec_command(args.command)
+    
+        for line in stdout:
+            print(f'Debian: ' + line.strip('\n'))
 
     sshClient.close()  
 

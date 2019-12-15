@@ -1,8 +1,8 @@
 Name: "kf"
 Brokers: 3
-Cpu: "0.5m"
+Cpu: "500m"
 Memory: "1Gi"
-Storage: "10Gi"
+Storage: "3Gi"
 AntiAffinity : "hard"
 ContainerPort: 9093
 LogLevel: INFO
@@ -16,7 +16,7 @@ TerminationGracePeriodSeconds: 300
 AutoCreateTopicsEnable: "true"
 AutoLeaderRebalanceEnable: "true"
 BackgroundThreads: "10"
-CompressionType: "producer"
+CompressionType: "lz4"
 DeleteTopicEnable: "false"
 LeaderImbalanceCheckIntervalSeconds: "300"
 LeaderImbalancePerBrokerPercentage: "10"
@@ -90,7 +90,7 @@ LogMessageTimestampType: "CreateTime"
 LogPreallocate: "false"
 LogRetentionCheckIntervalMs: "300000"
 MaxConnectionsPerIp: "2147483647"
-NumPartitions: "1"
+NumPartitions: "12"
 ProducerPurgatoryPurgeIntervalRequests: "1000"
 ReplicaFetchBackoffMs: "1000"
 ReplicaFetchMaxBytes: "1048576"
@@ -121,4 +121,3 @@ zookeeper:
   MinSessionTimeout: 4000
   UpdateStrategy: RollingUpdate
   MaxUnavailable: 1
-
