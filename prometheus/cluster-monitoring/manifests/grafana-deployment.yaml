@@ -146,6 +146,12 @@ spec:
           name: grafana-dashboard-dream-stream-load-vs-broker-replicas
           readOnly: false
 
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-evaluation
+          name: grafana-dashboard-dream-stream-evaluation
+          readOnly: false
+        - mountPath: /grafana-dashboard-definitions/0/dream-stream-evaluation-kafka
+          name: grafana-dashboard-dream-stream-evaluation-kafka
+          readOnly: false
 
           
 
@@ -281,6 +287,13 @@ spec:
           name: grafana-dashboard-dream-stream-load-vs-broker-replicas
         name: grafana-dashboard-dream-stream-load-vs-broker-replicas
 
+
+      - configMap:
+          name: grafana-dashboard-dream-stream-evaluation
+        name: grafana-dashboard-dream-stream-evaluation
+      - configMap:
+          name: grafana-dashboard-dream-stream-evaluation-kafka
+        name: grafana-dashboard-dream-stream-evaluation-kafka
 
 
         
