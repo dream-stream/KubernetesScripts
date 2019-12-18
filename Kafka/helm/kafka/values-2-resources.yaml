@@ -1,0 +1,3 @@
+Brokers: 3
+Cpu: "1000m"
+Memory: "2Gi"

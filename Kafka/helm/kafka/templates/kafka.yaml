@@ -43,7 +43,7 @@ metadata:
    component: "{{.Release.Name}}"
 spec:
   serviceName: "{{ printf "kf-hs-%s" .Release.Name | trunc 24 }}"
-  replicas: 3
+  replicas: {{.Values.Brokers}}
   podManagementPolicy: Parallel
   updateStrategy:
     type: {{.Values.UpdateStrategy}}
@@ -89,6 +89,9 @@ spec:
           requests:
             memory: {{.Values.Memory}}
             cpu: {{.Values.Cpu}}
+          limits:
+            memory: {{.Values.Memory}}
+            cpu: {{.Values.Cpu}}
         ports:
         - containerPort: {{.Values.ServerPort}}
           name: server
@@ -98,6 +101,7 @@ spec:
         - "exec kafka-server-start.sh /opt/kafka/config/server.properties --override broker.id=${HOSTNAME##*-} \
           --override zookeeper.connect=zookeeper-0.zookeeper-headless.default.svc.cluster.local:{{.Values.zookeeper.ClientPort}} \
           --override log.dir=/var/lib/kafka \
+          --override log.dirs=/var/lib/kafka \
           --override listeners=PLAINTEXT://:{{.Values.ServerPort}} \
           --override auto.create.topics.enable={{.Values.AutoCreateTopicsEnable}} \
           --override auto.leader.rebalance.enable={{.Values.AutoLeaderRebalanceEnable}} \
