@@ -1,6 +1,6 @@
 Name: "kf"
 Brokers: 3
-Cpu: "500m"
+Cpu: "3000m"
 Memory: "1Gi"
 Storage: "3Gi"
 AntiAffinity : "hard"
@@ -16,7 +16,8 @@ TerminationGracePeriodSeconds: 300
 AutoCreateTopicsEnable: "true"
 AutoLeaderRebalanceEnable: "true"
 BackgroundThreads: "10"
-CompressionType: "lz4"
+# CompressionType: "lz4"
+CompressionType: "producer"
 DeleteTopicEnable: "false"
 LeaderImbalanceCheckIntervalSeconds: "300"
 LeaderImbalancePerBrokerPercentage: "10"
