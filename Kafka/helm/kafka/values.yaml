@@ -1,6 +1,6 @@
 Name: "kf"
 Brokers: 3
-Cpu: "3000m"
+Cpu: "2000m"
 Memory: "1Gi"
 Storage: "3Gi"
 AntiAffinity : "hard"
