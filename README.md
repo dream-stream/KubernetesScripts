@@ -1,5 +1,7 @@
 # KubernetesScripts
 
+This folder contains multiple existing projects, which have been augmented to fit to Dream-Streams needs running on a Raspberry Pi Kubernetes cluster.
+
 ## Setup Prometheus
 Run the following commands:
 
@@ -20,6 +22,13 @@ See if the following are needed...
 
 When creating new deployments/statefulsets be sure to to use the label: **release: prometheus**
 And the port should be name and it should be called **web**
+
+In the final solution for Dream-Stream the cluster-monitoring Prometheus setup was used.
+
+Setup is done by running `kubectl apply -f prometheus\cluster-monitoring\manifests`
+
+Sometimes it should be ran twice, but other than that it should just work. 
+
 
 ## Setup etcd
 
