@@ -36,7 +36,7 @@ persistence:
   #storageClass: "-"
 
   accessMode: ReadWriteMany
-  size: 3Gi
+  size: 9Gi
 
 ## For creating the StorageClass automatically:
 storageClass:

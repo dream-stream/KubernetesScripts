@@ -4,7 +4,7 @@ metadata:
   name: nfs-pv-storage
 spec:
   capacity:
-    storage: 3Gi
+    storage: {{ .Values.persistence.size | quote }}
   accessModes:
     - ReadWriteMany
   storageClassName: local-path

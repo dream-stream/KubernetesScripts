@@ -153,7 +153,10 @@ spec:
           name: grafana-dashboard-dream-stream-evaluation-kafka
           readOnly: false
 
-          
+        - mountPath: /grafana-dashboard-definitions/0/grafana-dashboard-dream-stream-exam
+          name: grafana-dashboard-dream-stream-exam
+          readOnly: false
+
 
 
 
@@ -295,5 +298,9 @@ spec:
           name: grafana-dashboard-dream-stream-evaluation-kafka
         name: grafana-dashboard-dream-stream-evaluation-kafka
 
+      - configMap:
+          name: grafana-dashboard-dream-stream-exam
+        name: grafana-dashboard-dream-stream-exam
 
+        
         
